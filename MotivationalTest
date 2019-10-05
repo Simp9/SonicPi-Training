@@ -1,0 +1,12 @@
+pan = 0
+
+live_loop :safari do
+  sample :loop_safari, amp: 0.8
+  if(pan == 0)
+    sample :perc_swash, pan: -1, amp: 0.8
+  else
+    sample :perc_swash, pan: 1, amp: 0.8
+  end
+  pan = (pan + 1) % 2
+  sleep 2
+end
