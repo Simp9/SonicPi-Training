@@ -1,0 +1,48 @@
+define :firstdrum do
+  sample :drum_tom_hi_hard, amp: 0.8
+  sleep 0.2
+  sample :drum_tom_hi_hard, amp: 0.8
+  sleep 0.2
+  sample :drum_tom_hi_hard, amp: 0.8
+  sleep 0.2
+  sample :drum_tom_hi_hard, amp: 0.8
+  sleep 0.2
+  sample :drum_tom_hi_hard, amp: 0.8
+end
+
+define :seconddrum do
+  sample :drum_tom_hi_soft, amp: 0.8
+  sleep 0.2
+  sample :drum_tom_hi_soft, amp: 0.8
+  sleep 0.2
+  sample :drum_tom_hi_soft, amp: 0.8
+  sleep 0.2
+  sample :drum_tom_hi_soft, amp: 0.8
+  sleep 0.2
+  sample :drum_tom_hi_soft, amp: 0.8
+end
+
+in_thread do
+  5.times do
+    firstdrum
+  end
+  sample :drum_tom_hi_hard, amp: 0.8
+  sleep 0.2
+  5.times do
+    firstdrum
+  end
+  sample :drum_tom_hi_hard, amp: 0.8
+end
+
+in_thread do
+  sleep 0.1
+  5.times do
+    seconddrum
+  end
+  sample :drum_tom_hi_soft, amp: 0.8
+  sleep 0.2
+  5.times do
+    seconddrum
+  end
+  sample :drum_tom_hi_soft, amp: 0.8
+end
